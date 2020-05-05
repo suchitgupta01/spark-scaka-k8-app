@@ -1,0 +1,13 @@
+FROM test/spark-operator:latest
+
+WORKDIR /opt/spark-2.4.5/work-dir
+
+# Pre-install base libraries
+ADD build.sbt /opt/spark-2.4.5/work-dir/
+ADD project/plugins.sbt /opt/spark-2.4.5/work-dir/project/
+ADD project/build.properties /opt/spark-2.4.5/work-dir/project/
+ADD src/. /opt/spark-2.4.5/work-dir/src/
+RUN sbt update
+
+RUN sbt clean assembly
+#/opt/spark-2.4.5/work-dir/target/scala-2.12/spark-scala-k8-app-0.1.jar
