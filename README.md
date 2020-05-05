@@ -35,3 +35,5 @@ Execute following command to run the code in k8:
 ```$xslt
 kubectl apply -f examples/spark-scala-k8-app.yaml
 ```
+
+![Kubernetes Dashboard](docs/K8-Pod.png)
