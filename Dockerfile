@@ -43,5 +43,8 @@ RUN \
   && ln -s /usr/local/sbt/bin/* /usr/local/bin/ \
   && sbt sbt-version || sbt sbtVersion || true
 
+# Edit entrypoint to source spark-env.sh before running spark-submit
+RUN sed -i '30i #CUSTOM\n' /opt/entrypoint.sh \
+   && sed -i '/#CUSTOM/a source ${SPARK_HOME}/conf-org/spark-env.sh\n' /opt/entrypoint.sh
 
 ENTRYPOINT ["/opt/entrypoint.sh"]

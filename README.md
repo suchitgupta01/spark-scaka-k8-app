@@ -31,6 +31,7 @@ A simple code on showing how to package the Spark Scala code and deploy it on Ku
 
 ## Deploy the code on K8
 Execute following command to run the code in k8:
+
 ```$xslt
 kubectl apply -f examples/spark-scala-k8-app.yaml
 ```

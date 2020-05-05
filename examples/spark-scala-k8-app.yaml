@@ -9,7 +9,7 @@ spec:
   image: "test/spark-scala-k8-app:latest"
   imagePullPolicy: Never
   mainClass: com.AppK8Demo
-  mainApplicationFile: "local:///opt/spark-2.4.5/work-dir/target/scala-2.12/spark-scala-k8-app-0.1.jar"
+  mainApplicationFile: "local:///opt/spark-2.4.5/work-dir/target/scala-2.12/spark-scala-k8-app-assembly-0.1.jar"
   sparkVersion: "2.4.5"
   restartPolicy:
     type: Never
