@@ -1,4 +1,4 @@
-# spark-scaka-k8-app
+# spark-scala-k8-app
 A simple code on showing how to package the Spark Scala code and deploy it on Kubernetes using spark-on-k8s-operator.
 
 ## Project structure
