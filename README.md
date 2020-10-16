@@ -25,11 +25,11 @@ A simple code on showing how to package the Spark Scala code and deploy it on Ku
     }
     ```
 
-## Build docker images
+## Build docker images or use step local volume
 1. docker build -t test/spark-operator:latest .
 2. docker build -f Dockerfile-app -t test/spark-scala-k8-app:latest .
 
-## Deploy the code on K8
+## Deploy the code on K8 using docker image
 Execute following command to run the code in k8:
 
 ```$xslt
@@ -37,3 +37,10 @@ kubectl apply -f examples/spark-scala-k8-app.yaml
 ```
 
 ![Kubernetes Dashboard](docs/K8-Pod.png)
+
+## Deploy the code on K8 using volume
+Execute following command to run the code in k8:
+
+```$xslt
+kubectl apply -f examples/spark-scala-file-k8-app.yaml
+```
