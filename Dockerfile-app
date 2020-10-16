@@ -1,13 +1,13 @@
 FROM test/spark-operator:latest
 
-WORKDIR /opt/spark-2.4.5/work-dir
+# Add project files
+ADD build.sbt /app/
+ADD project/plugins.sbt /app/project/
+ADD project/build.properties /app/project/
+ADD src/. /app/src/
 
-# Pre-install base libraries
-ADD build.sbt /opt/spark-2.4.5/work-dir/
-ADD project/plugins.sbt /opt/spark-2.4.5/work-dir/project/
-ADD project/build.properties /opt/spark-2.4.5/work-dir/project/
-ADD src/. /opt/spark-2.4.5/work-dir/src/
-RUN sbt update
 
+#Build the projects
 RUN sbt clean assembly
-#/opt/spark-2.4.5/work-dir/target/scala-2.12/spark-scala-k8-app-0.1.jar
+
+ENTRYPOINT ["/opt/entrypoint.sh"]

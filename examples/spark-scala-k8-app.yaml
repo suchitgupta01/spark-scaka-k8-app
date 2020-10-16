@@ -9,8 +9,8 @@ spec:
   image: "test/spark-scala-k8-app:latest"
   imagePullPolicy: Never
   mainClass: com.AppK8Demo
-  mainApplicationFile: "local:///opt/spark-2.4.5/work-dir/target/scala-2.12/spark-scala-k8-app-assembly-0.1.jar"
-  sparkVersion: "2.4.5"
+  mainApplicationFile: "local:///app/target/scala-2.12/spark-scala-k8-app-assembly-0.1.jar"
+  sparkVersion: "3.0.0"
   restartPolicy:
     type: Never
   volumes:
@@ -23,7 +23,7 @@ spec:
     coreLimit: "1200m"
     memory: "512m"
     labels:
-      version: 2.4.5
+      version: 3.0.0
     serviceAccount: spark
     volumeMounts:
       - name: "test-volume"
@@ -33,7 +33,7 @@ spec:
     instances: 1
     memory: "512m"
     labels:
-      version: 2.4.5
+      version: 3.0.0
     volumeMounts:
       - name: "test-volume"
         mountPath: "/tmp"
